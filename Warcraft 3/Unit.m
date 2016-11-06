@@ -14,24 +14,22 @@
 #import "Unit.h"
 
 @implementation Unit
+@synthesize healthPoints;
 
 - (instancetype)initWithHP:(int)hp AP:(int)ap{
-    self = [super init];
-    if (self){
-        
-    _healthPoints = hp;
-    _ap = ap;
-        
-    }
+    healthPoints = hp;
+    _attackPower = ap;
+    
     return self;
 }
 
 - (void)setHealthPoints:(int)hp{
-    hp = self.healthPoints;
+    healthPoints = hp;
 }
 
 - (int)healthPoints{
-    return self.healthPoints;
+    
+    return healthPoints;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "Barracks.h"
 #import "Footman.h"
+#import "Peasant.h"
 
 @implementation Barracks
 
@@ -19,27 +20,46 @@
 }
 
 -(Footman *) trainFootman{
-    self.gold = self.gold - 135;
-    self.food = self.food - 2;
     
     if ([self canTrainFootman] == YES) {
+        self.gold = self.gold - 135;
+        self.food = self.food - 2;
         Footman *trainedFootman = [[Footman alloc]init];
         return trainedFootman;
     }else{
         NSLog(@"not enough resources");
+        return nil;
     }
-    return nil;
 }
 
 -(BOOL) canTrainFootman{
-    if (self.gold < 135) {
-        return NO;
-    }else if (self.food < 2){
-        return NO;
-    }else{
+    if (self.gold >= 135 && self.food >= 2) {
         return YES;
+    }else{
+        return NO;
+    }
+}
+
+- (Peasant*)trainPeasant{
+    if ([self canTrainFootman] == YES) {
+        self.gold = self.gold - 90;
+        self.food = self.food - 5;
+        Footman *trainedPeasant = [[Peasant alloc]init];
+        return trainedPeasant;
+    }else{
+        NSLog(@"not enough resources");
+        return nil;
     }
 
 }
+
+- (BOOL)canTrainPeasant{
+    if (self.gold >= 90 && self.food >= 5) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
 
 @end

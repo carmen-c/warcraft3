@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Unit : NSObject
+{
+    int healthPoints;
+    int ap;
+}
 
-@property (assign, nonatomic) int ap;
-@property (assign, nonatomic) int healthPoints;
+@property (assign, nonatomic) int attackPower;
+@property (assign) int healthPoints;
 
 @end
